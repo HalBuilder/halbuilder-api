@@ -1,8 +1,11 @@
 package com.theoryinpractise.halbuilder.api;
 
+import java.io.Writer;
+import java.net.URI;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * A ReadableRepresentation is a read-only, immutable HAL Representation object.
@@ -116,7 +119,7 @@ public interface ReadableRepresentation {
     <T> T toClass(Class<T> anInterface);
 
     /**
-     * Returns the resource in the request content-type.
+     * Returns the resource in the requested content-type.
      *
      * application/hal+xml and application/hal+json are provided by default,
      * additional Renderers can be added to a RepresentationFactory.
@@ -124,6 +127,30 @@ public interface ReadableRepresentation {
      * @param contentType The content type requested
      * @return A String
      */
-    String renderContent(String contentType);
+    String toString(String contentType);
+
+    /**
+     * Returns the resource in the requested content-type, along with additional flags.
+     *
+     * application/hal+xml and application/hal+json are provided by default,
+     * additional Renderers can be added to a RepresentationFactory.
+     *
+     * @param contentType The content type requested
+     * @param flags A set of URI based flags to customize rendering
+     * @return A String
+     */
+    String toString(String contentType, final Set<URI> flags);
+
+    /**
+     * Write the resource in the requested content-type, along with additional flags to the specified Writer
+     *
+     * application/hal+xml and application/hal+json are provided by default,
+     * additional Renderers can be added to a RepresentationFactory.
+     *
+     * @param contentType The content type requested
+     * @param flags A set of URI based flags to customize rendering
+     * @param writer The Writer to write to
+     */
+    void toString(String contentType, final Set<URI> flags, Writer writer);
 
 }

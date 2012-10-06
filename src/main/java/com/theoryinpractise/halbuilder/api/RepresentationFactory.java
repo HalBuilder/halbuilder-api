@@ -2,25 +2,41 @@ package com.theoryinpractise.halbuilder.api;
 
 import java.io.Reader;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Set;
 
-public interface RepresentationFactory {
-    String HAL_XML = "application/hal+xml";
-    String HAL_JSON = "application/hal+json";
+public abstract class RepresentationFactory {
+    public static final String HAL_XML = "application/hal+xml";
+    public static final String HAL_JSON = "application/hal+json";
 
-    String getBaseHref();
+    public static final URI PRETTY_PRINT = makeUri("urn:halbuilder:prettyprint");
 
-    RepresentationFactory withNamespace(String namespace, String url);
+    protected static URI makeUri(String uri) {
+        try {
+            return new URI(uri);
+        } catch (URISyntaxException e) {
+            throw new RepresentationException(e);
+        }
+    }
 
-    RepresentationFactory withLink(String url, String rel);
+    public abstract String getBaseHref();
 
-    Representation newRepresentation(URI uri);
+    public abstract RepresentationFactory withNamespace(String namespace, String url);
 
-    Representation newRepresentation();
+    public abstract RepresentationFactory withLink(String url, String rel);
 
-    Representation newRepresentation(String href);
+    public abstract RepresentationFactory withFlag(URI flag);
 
-    ReadableRepresentation readRepresentation(Reader reader);
+    public abstract Representation newRepresentation(URI uri);
 
-    Renderer<String> lookupRenderer(String contentType);
+    public abstract Representation newRepresentation();
+
+    public abstract Representation newRepresentation(String href);
+
+    public abstract ReadableRepresentation readRepresentation(Reader reader);
+
+    public abstract Renderer<String> lookupRenderer(String contentType);
+
+    public abstract Set<URI> getFlags();
 
 }
