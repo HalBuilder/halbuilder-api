@@ -1,15 +1,15 @@
 package com.theoryinpractise.halbuilder.api;
 
 /**
- * Implementers of this interface can provide customized "serialization"
+ * Implementers of this interface can provide customized means of representing a class
  * to a Representation.
  */
-public interface Serializable {
+public interface Representable {
 
     /**
      * "Serializes" data to the given resource.
      * @param resource The resource to serialize into.
      */
-    void serializeResource(Representation resource);
+    void representResource(Representation resource);
 
 }

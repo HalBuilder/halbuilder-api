@@ -16,7 +16,7 @@ public interface Representation extends ReadableRepresentation {
 
     Representation withFields(Object value);
 
-    Representation withSerializable(Serializable serializable);
+    Representation withRepresentable(Representable representable);
 
     Representation withFieldBasedRepresentation(String rel, String href, Object o);
 
