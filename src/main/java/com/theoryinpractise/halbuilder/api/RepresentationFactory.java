@@ -19,8 +19,6 @@ public abstract class RepresentationFactory {
         }
     }
 
-    public abstract String getBaseHref();
-
     public abstract RepresentationFactory withNamespace(String namespace, String url);
 
     public abstract RepresentationFactory withLink(String url, String rel);
