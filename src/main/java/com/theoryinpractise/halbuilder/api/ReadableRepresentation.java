@@ -142,6 +142,17 @@ public interface ReadableRepresentation {
     String toString(String contentType, final Set<URI> flags);
 
     /**
+     * Write the resource in the requested content-type, to the specified Writer
+     *
+     * application/hal+xml and application/hal+json are provided by default,
+     * additional Renderers can be added to a RepresentationFactory.
+     *
+     * @param contentType The content type requested
+     * @param writer The Writer to write to
+     */
+    void toString(String contentType, Writer writer);
+
+    /**
      * Write the resource in the requested content-type, along with additional flags to the specified Writer
      *
      * application/hal+xml and application/hal+json are provided by default,

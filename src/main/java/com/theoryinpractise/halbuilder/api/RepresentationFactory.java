@@ -11,6 +11,8 @@ public abstract class RepresentationFactory {
 
     public static final URI PRETTY_PRINT = makeUri("urn:halbuilder:prettyprint");
 
+    public static final URI COALESCE_LINKS = makeUri("urn:halbuilder:coalescelinks");
+
     protected static URI makeUri(String uri) {
         try {
             return new URI(uri);
