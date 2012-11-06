@@ -6,7 +6,9 @@ import java.util.regex.Pattern;
  * A Link to an external resource.
  */
 public class Link {
-    /** Pattern that will hit an RFC 6570 URI template. */
+    /**
+     * Pattern that will hit an RFC 6570 URI template.
+     */
     private static final Pattern URI_TEMPLATE_PATTERN = Pattern.compile("\\{.+\\}");
 
     private RepresentationFactory representationFactory;
@@ -23,7 +25,7 @@ public class Link {
         this.representationFactory = representationFactory;
         this.href = href;
         this.rel = rel;
-        if(hasTemplate(href)) {
+        if (hasTemplate(href)) {
             this.hasTemplate = true;
         }
     }
@@ -67,12 +69,13 @@ public class Link {
     /**
      * Determine whether the argument href contains at least one URI template,
      * as defined in RFC 6570.
+     *
      * @param href Href to check.
      * @return True if the href contains a template, false if not (or if the
-     * argument is null).
+     *         argument is null).
      */
     private boolean hasTemplate(String href) {
-        if(href == null) {
+        if (href == null) {
             return false;
         }
         return URI_TEMPLATE_PATTERN.matcher(href).find();
@@ -111,16 +114,16 @@ public class Link {
         Link that = (Link) obj;
         boolean e = this.href.equals(that.href);
         e &= this.rel.equals(that.rel);
-        if (name != null) {
+        if (!emptyOrNull(name)) {
             e &= this.name.equals(that.name);
         }
-        if (title != null) {
+        if (!emptyOrNull(title)) {
             e &= this.title.equals(that.title);
         }
-        if (profile != null) {
+        if (!emptyOrNull(profile)) {
             e &= this.profile.equals(that.profile);
         }
-        if (hreflang != null) {
+        if (!emptyOrNull(hreflang)) {
             e &= this.hreflang.equals(that.hreflang);
         }
         return e;
@@ -130,20 +133,24 @@ public class Link {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("<link rel=\"").append(rel).append("\" href=\"").append(href).append("\"");
-        if (name != null) {
+        if (!emptyOrNull(name)) {
             sb.append(" name=\"").append(name).append("\"");
         }
-        if (title != null) {
+        if (!emptyOrNull(title)) {
             sb.append(" title=\"").append(title).append("\"");
         }
-        if (profile != null) {
+        if (!emptyOrNull(profile)) {
             sb.append(" profile=\"").append(profile).append("\"");
         }
-        if (hreflang != null) {
+        if (!emptyOrNull(hreflang)) {
             sb.append(" hreflang=\"").append(hreflang).append("\"");
         }
         sb.append("/>");
 
         return sb.toString();
+    }
+
+    private boolean emptyOrNull(String s) {
+        return s == null || "".equals(s.trim());
     }
 }
