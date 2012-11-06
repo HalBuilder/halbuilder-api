@@ -16,9 +16,10 @@ public class Link {
     private String name;
     private String title;
     private String hreflang;
+    private String profile;
     private boolean hasTemplate = false;
 
-    public Link(RepresentationFactory representationFactory, String href, String rel) {
+    public Link(RepresentationFactory representationFactory, String rel, String href) {
         this.representationFactory = representationFactory;
         this.href = href;
         this.rel = rel;
@@ -27,11 +28,12 @@ public class Link {
         }
     }
 
-    public Link(RepresentationFactory representationFactory, String href, String rel, String name, String title, String hreflang) {
-        this(representationFactory, href, rel);
+    public Link(RepresentationFactory representationFactory, String rel, String href, String name, String title, String hreflang, String profile) {
+        this(representationFactory, rel, href);
         this.name = name;
         this.title = title;
         this.hreflang = hreflang;
+        this.profile = profile;
     }
 
     public String getHref() {
@@ -52,6 +54,10 @@ public class Link {
 
     public String getHreflang() {
         return hreflang;
+    }
+
+    public String getProfile() {
+        return profile;
     }
 
     public boolean hasTemplate() {
@@ -82,6 +88,9 @@ public class Link {
         if (title != null) {
             h += title.hashCode();
         }
+        if (profile != null) {
+            h += profile.hashCode();
+        }
         if (hreflang != null) {
             h += hreflang.hashCode();
         }
@@ -108,6 +117,9 @@ public class Link {
         if (title != null) {
             e &= this.title.equals(that.title);
         }
+        if (profile != null) {
+            e &= this.profile.equals(that.profile);
+        }
         if (hreflang != null) {
             e &= this.hreflang.equals(that.hreflang);
         }
@@ -123,6 +135,9 @@ public class Link {
         }
         if (title != null) {
             sb.append(" title=\"").append(title).append("\"");
+        }
+        if (profile != null) {
+            sb.append(" profile=\"").append(profile).append("\"");
         }
         if (hreflang != null) {
             sb.append(" hreflang=\"").append(hreflang).append("\"");
