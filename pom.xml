@@ -8,6 +8,7 @@
     <packaging>jar</packaging>
 
     <name>halbuilder-api</name>
+    <description>HalBuilder API</description>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -15,9 +16,9 @@
     </properties>
 
     <scm>
-        <connection>scm:git@github.com:HalBuilder/halbuilder-api.git</connection>
-        <developerConnection>scm:git@github.com:HalBuilder/halbuilder-api.git</developerConnection>
-        <url>http://github.com/HalBuilder/halbuilder-api</url>
+        <connection>scm:git:git@github.com:HalBuilder/halbuilder-api.git</connection>
+        <developerConnection>scm:git:git@github.com:HalBuilder/halbuilder-api.git</developerConnection>
+        <url>http://gotohal.net</url>
     </scm>
 
     <developers>
