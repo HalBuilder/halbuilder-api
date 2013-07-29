@@ -3,7 +3,7 @@
 
     <groupId>com.theoryinpractise</groupId>
     <artifactId>halbuilder-api</artifactId>
-    <version>2.1.1-SNAPSHOT</version>
+    <version>2.1.1</version>
     <packaging>jar</packaging>
 
     <name>halbuilder-api</name>
@@ -18,7 +18,7 @@
         <connection>scm:git:git@github.com:HalBuilder/halbuilder-api.git</connection>
         <developerConnection>scm:git:git@github.com:HalBuilder/halbuilder-api.git</developerConnection>
         <url>http://gotohal.net</url>
-      <tag>HEAD</tag>
+      <tag>halbuilder-api-2.1.1</tag>
   </scm>
 
     <developers>
