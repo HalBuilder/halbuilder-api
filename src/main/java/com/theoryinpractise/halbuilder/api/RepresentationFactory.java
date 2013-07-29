@@ -13,6 +13,8 @@ public abstract class RepresentationFactory {
 
     public static final URI COALESCE_LINKS = makeUri("urn:halbuilder:coalescelinks");
 
+    public static final URI STRIP_NULLS = makeUri("urn:halbuilder:stripnulls");
+
     protected static URI makeUri(String uri) {
         try {
             return new URI(uri);
