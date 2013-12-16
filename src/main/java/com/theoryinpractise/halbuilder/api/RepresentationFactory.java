@@ -14,6 +14,8 @@ public abstract class RepresentationFactory {
     public static final URI COALESCE_LINKS = makeUri("urn:halbuilder:coalescelinks");
 
     public static final URI STRIP_NULLS = makeUri("urn:halbuilder:stripnulls");
+    
+    public static final URI SINGLE_ELEM_ARRAYS = makeUri("urn:halbuild:singleelemarrays");
 
     protected static URI makeUri(String uri) {
         try {
