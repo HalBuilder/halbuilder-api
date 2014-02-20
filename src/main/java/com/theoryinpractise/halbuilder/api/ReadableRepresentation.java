@@ -40,16 +40,14 @@ public interface ReadableRepresentation {
     List<Link> getLinks();
 
     /**
-     * Returns the first link matching the given rel by searching this, then
-     * any embedded resource instance.
+     * Returns the first link matching the given rel by searching this representation.
      * @param rel The rel type to search for.
      * @return A Guava Optional Link
      */
     Link getLinkByRel(String rel);
 
     /**
-     * Returns all links matching the given rel by searching this, then
-     * any embedded resource instance.
+     * Returns all links matching the given rel by searching this representation.
      * @param rel The rel type to search for.
      * @return An Immutable List of Links
      */
