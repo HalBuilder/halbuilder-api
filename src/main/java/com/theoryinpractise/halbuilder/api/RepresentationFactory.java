@@ -31,7 +31,7 @@ public abstract class RepresentationFactory {
 
   public abstract Representation newRepresentation(String href);
 
-  public abstract ReadableRepresentation readRepresentation(String contentType, Reader reader);
+  public abstract ContentRepresentation readRepresentation(String contentType, Reader reader);
 
   public abstract Set<URI> getFlags();
 

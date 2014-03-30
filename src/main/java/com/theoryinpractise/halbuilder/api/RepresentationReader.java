@@ -4,6 +4,6 @@ import java.io.Reader;
 
 public interface RepresentationReader {
 
-  SourceRepresentation read(Reader source);
+  ContentRepresentation read(Reader source);
 
 }

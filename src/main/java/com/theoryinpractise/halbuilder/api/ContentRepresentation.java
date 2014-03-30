@@ -1,6 +1,6 @@
 package com.theoryinpractise.halbuilder.api;
 
-public interface SourceRepresentation extends ReadableRepresentation {
+public interface ContentRepresentation extends ReadableRepresentation {
 
   String getContent();
 
