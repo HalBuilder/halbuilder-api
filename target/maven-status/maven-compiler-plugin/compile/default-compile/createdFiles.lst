@@ -1,0 +1,10 @@
+com/theoryinpractise/halbuilder/api/Representable.class
+com/theoryinpractise/halbuilder/api/RepresentationException.class
+com/theoryinpractise/halbuilder/api/RepresentationFactory.class
+com/theoryinpractise/halbuilder/api/ReadableRepresentation.class
+com/theoryinpractise/halbuilder/api/RepresentationWriter.class
+com/theoryinpractise/halbuilder/api/Representation.class
+com/theoryinpractise/halbuilder/api/Contract.class
+com/theoryinpractise/halbuilder/api/ContentRepresentation.class
+com/theoryinpractise/halbuilder/api/RepresentationReader.class
+com/theoryinpractise/halbuilder/api/Link.class

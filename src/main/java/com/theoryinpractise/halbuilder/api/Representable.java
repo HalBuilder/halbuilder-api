@@ -6,10 +6,11 @@ package com.theoryinpractise.halbuilder.api;
  */
 public interface Representable {
 
-    /**
-     * "Serializes" data to the given resource.
-     * @param resource The resource to serialize into.
-     */
-    void representResource(Representation resource);
+  /**
+   * "Serializes" data to the given resource.
+   *
+   * @param resource The resource to serialize into.
+   */
+  void representResource(Representation resource);
 
 }
