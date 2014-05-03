@@ -147,11 +147,25 @@ public interface ReadableRepresentation {
    * application/hal+xml and application/hal+json are provided by default,
    * additional Renderers can be added to a RepresentationFactory.
    *
+   * @deprecated
    * @param contentType The content type requested
    * @param flags       A set of URI based flags to customize rendering
    * @return A String
    */
+  @Deprecated
   String toString(String contentType, final Set<URI> flags);
+
+  /**
+   * Returns the resource in the requested content-type, along with additional flags.
+   * <p>
+   * application/hal+xml and application/hal+json are provided by default,
+   * additional Renderers can be added to a RepresentationFactory.
+   *
+   * @param contentType The content type requested
+   * @param flags       A set of URI based flags to customize rendering
+   * @return A String
+   */
+  String toString(String contentType, final URI... flags);
 
   /**
    * Write the resource in the requested content-type, to the specified Writer
@@ -170,10 +184,24 @@ public interface ReadableRepresentation {
    * application/hal+xml and application/hal+json are provided by default,
    * additional Renderers can be added to a RepresentationFactory.
    *
+   * @deprecated
    * @param contentType The content type requested
    * @param flags       A set of URI based flags to customize rendering
    * @param writer      The Writer to write to
    */
+  @Deprecated
   void toString(String contentType, final Set<URI> flags, Writer writer);
+
+  /**
+   * Write the resource in the requested content-type, along with additional flags to the specified Writer
+   * <p>
+   * application/hal+xml and application/hal+json are provided by default,
+   * additional Renderers can be added to a RepresentationFactory.
+   *
+   * @param contentType The content type requested
+   * @param flags       A set of URI based flags to customize rendering
+   * @param writer      The Writer to write to
+   */
+  void toString(String contentType, Writer writer, URI... flags);
 
 }
