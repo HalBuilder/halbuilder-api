@@ -13,9 +13,9 @@ public abstract class RepresentationFactory {
 
   public static final URI COALESCE_LINKS = URI.create("urn:halbuilder:coalescelinks");
 
-  public static final URI STRIP_NULLS = URI.create("urn:halbuilder:stripnulls");
+  public static final URI COALESCE_ARRAYS = URI.create("urn:halbuilder:coalescearrays");
 
-  public static final URI SINGLE_ELEM_ARRAYS = URI.create("urn:halbuild:singleelemarrays");
+  public static final URI STRIP_NULLS = URI.create("urn:halbuilder:stripnulls");
 
   public static final URI HYPERTEXT_CACHE_PATTERN = URI.create("urn:halbuild:hypertextcachepattern");
 
