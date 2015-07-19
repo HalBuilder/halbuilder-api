@@ -2,7 +2,10 @@ package com.theoryinpractise.halbuilder.api;
 
 import java.net.URI;
 
-public interface Representation extends ReadableRepresentation {
+public interface Representation
+    extends ReadableRepresentation {
+
+  Representation withRel(Rel rel);
 
   Representation withLink(String rel, String href);
 

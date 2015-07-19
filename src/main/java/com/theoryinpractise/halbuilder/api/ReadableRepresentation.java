@@ -27,6 +27,12 @@ public interface ReadableRepresentation {
   Map<String, String> getNamespaces();
 
   /**
+   * Returns an ImmutableMap of the currently defined representation rel semantics
+   * @return A Map
+   */
+  Map<String,Rel> getRels();
+
+  /**
    * Returns an ImmutableList of individual Link instances on this resource.
    *
    * @return A List of Links
@@ -82,7 +88,7 @@ public interface ReadableRepresentation {
    * @param name The property to return
    * @return An Object of the property value, or a user supplied default value
    */
-  Object getValue(String name, Object defaultValue);
+  <T> T getValue(String name, T defaultValue);
 
   /**
    * Returns an ImmutableMap of the resources properties.

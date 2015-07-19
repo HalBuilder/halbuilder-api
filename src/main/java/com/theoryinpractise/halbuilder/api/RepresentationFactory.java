@@ -2,6 +2,7 @@ package com.theoryinpractise.halbuilder.api;
 
 import java.io.Reader;
 import java.net.URI;
+import java.util.Map;
 import java.util.Set;
 
 public abstract class RepresentationFactory {
@@ -13,13 +14,18 @@ public abstract class RepresentationFactory {
 
   public static final URI COALESCE_LINKS = URI.create("urn:halbuilder:coalescelinks");
 
+  @Deprecated
   public static final URI COALESCE_ARRAYS = URI.create("urn:halbuilder:coalescearrays");
 
   public static final URI STRIP_NULLS = URI.create("urn:halbuilder:stripnulls");
 
+  public static final URI SILENT_SORTING = URI.create("urn:halbuilder:silentsorting");
+
   public static final URI HYPERTEXT_CACHE_PATTERN = URI.create("urn:halbuild:hypertextcachepattern");
 
   public abstract RepresentationFactory withNamespace(String namespace, String href);
+
+  public abstract RepresentationFactory withRel(Rel rel);
 
   public abstract RepresentationFactory withLink(String rel, String href);
 
@@ -34,5 +40,7 @@ public abstract class RepresentationFactory {
   public abstract ContentRepresentation readRepresentation(String contentType, Reader reader);
 
   public abstract Set<URI> getFlags();
+
+  public abstract Map<String,Rel> getRels();
 
 }
