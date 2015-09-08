@@ -63,7 +63,7 @@ public abstract class Rel {
 
     @Override
     public Comparator<ReadableRepresentation> comparator() {
-      throw new UnsupportedOperationException("Natural Rels don't have comparators");
+      return Comparator.comparing(rep -> rep.getResourceLink().getRel());
     }
 
     @Override
