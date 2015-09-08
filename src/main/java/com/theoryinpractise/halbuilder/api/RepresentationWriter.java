@@ -2,7 +2,7 @@ package com.theoryinpractise.halbuilder.api;
 
 import java.io.Writer;
 import java.net.URI;
-import java.util.Set;
+import fj.data.Set;
 
 /**
  * A RepresentationWriter takes a ReadableRepresentation and renders it to the provided Writer, returning an

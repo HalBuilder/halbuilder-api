@@ -1,11 +1,14 @@
 package com.theoryinpractise.halbuilder.api;
 
+import fj.data.List;
+import fj.data.Option;
+import fj.data.Set;
+import fj.data.TreeMap;
+
 import java.io.Writer;
 import java.net.URI;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * A ReadableRepresentation is a read-only, immutable HAL Representation object.
@@ -24,13 +27,14 @@ public interface ReadableRepresentation {
    *
    * @return A Map
    */
-  Map<String, String> getNamespaces();
+  TreeMap<String, String> getNamespaces();
 
   /**
    * Returns an ImmutableMap of the currently defined representation rel semantics
+   *
    * @return A Map
    */
-  Map<String,Rel> getRels();
+  TreeMap<String, Rel> getRels();
 
   /**
    * Returns an ImmutableList of individual Link instances on this resource.
@@ -80,7 +84,7 @@ public interface ReadableRepresentation {
    * @param name The property to return
    * @return An Object of the property value, or throws RepresentationException if missing
    */
-  Object getValue(String name);
+  Option<Object> getValue(String name);
 
   /**
    * Returns a property from the Representation
@@ -95,7 +99,7 @@ public interface ReadableRepresentation {
    *
    * @return A Map
    */
-  Map<String, Object> getProperties();
+  TreeMap<String, Option<Object>> getProperties();
 
   /**
    * Return an indication of whether this resource, or subresources of this
@@ -118,7 +122,8 @@ public interface ReadableRepresentation {
    *
    * @return
    */
-  Map<String, Collection<ReadableRepresentation>> getResourceMap();
+
+  TreeMap<String, Collection<? extends ReadableRepresentation>> getResourceMap();
 
   /**
    * Returns whether this resource is satisfied by the provided Contact.
@@ -153,10 +158,10 @@ public interface ReadableRepresentation {
    * application/hal+xml and application/hal+json are provided by default,
    * additional Renderers can be added to a RepresentationFactory.
    *
-   * @deprecated
    * @param contentType The content type requested
    * @param flags       A set of URI based flags to customize rendering
    * @return A String
+   * @deprecated
    */
   @Deprecated
   String toString(String contentType, final Set<URI> flags);
@@ -190,10 +195,10 @@ public interface ReadableRepresentation {
    * application/hal+xml and application/hal+json are provided by default,
    * additional Renderers can be added to a RepresentationFactory.
    *
-   * @deprecated
    * @param contentType The content type requested
    * @param flags       A set of URI based flags to customize rendering
    * @param writer      The Writer to write to
+   * @deprecated
    */
   @Deprecated
   void toString(String contentType, final Set<URI> flags, Writer writer);

@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
  * A Link to an external resource.
  */
 public class Link {
+
   /**
    * Pattern that will hit an RFC 6570 URI template.
    */
@@ -36,7 +37,8 @@ public class Link {
     }
   }
 
-  public Link(RepresentationFactory representationFactory, String rel, String href, String name, String title, String hreflang, String profile) {
+  public Link(RepresentationFactory representationFactory, String rel, String href, String name, String title,
+              String hreflang, String profile) {
     this(representationFactory, rel, href);
     this.name = name;
     this.title = title;

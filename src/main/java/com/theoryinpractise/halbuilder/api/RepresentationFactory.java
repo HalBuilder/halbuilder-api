@@ -1,9 +1,10 @@
 package com.theoryinpractise.halbuilder.api;
 
+import fj.data.Set;
+import fj.data.TreeMap;
+
 import java.io.Reader;
 import java.net.URI;
-import java.util.Map;
-import java.util.Set;
 
 public abstract class RepresentationFactory {
   public static final String HAL_XML = "application/hal+xml";
@@ -41,6 +42,6 @@ public abstract class RepresentationFactory {
 
   public abstract Set<URI> getFlags();
 
-  public abstract Map<String,Rel> getRels();
+  public abstract TreeMap<String, Rel> getRels();
 
 }
