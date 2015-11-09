@@ -1,7 +1,13 @@
 package com.theoryinpractise.halbuilder.api;
 
+import javaslang.collection.Map;
+
 import java.net.URI;
 
+/**
+ * An extension of the `ReadableRepresentation` interface that provides mutation methods, this interface does not prescribe the
+ * implementing class to be either mutable or persistent so care should be used.
+ */
 public interface Representation
     extends ReadableRepresentation {
 
@@ -11,9 +17,12 @@ public interface Representation
 
   Representation withLink(String rel, URI uri);
 
-  Representation withLink(String rel, String href, String name, String title, String hreflang, String profile);
+  Representation withLink(String rel, String href, String name, String title, String hreflang,
+                          String profile);
 
   Representation withProperty(String name, Object value);
+
+  Representation withProperties(Map<String, Object> properties);
 
   Representation withBean(Object value);
 
@@ -28,5 +37,4 @@ public interface Representation
   Representation withNamespace(String namespace, String href);
 
   Representation withRepresentation(String rel, ReadableRepresentation resource);
-
 }

@@ -1,10 +1,10 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.theoryinpractise</groupId>
   <artifactId>halbuilder-api</artifactId>
-  <version>4.1.1-SNAPSHOT</version>
+  <version>5.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>halbuilder-api</name>
@@ -13,92 +13,43 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <checkstyle.suppressions.location>checkstyle-supressions.xml</checkstyle.suppressions.location>
+    <dependency.check.fastfail>false</dependency.check.fastfail>
   </properties>
 
-  <scm>
-    <connection>scm:git:git@github.com:HalBuilder/halbuilder-api.git</connection>
-    <developerConnection>scm:git:git@github.com:HalBuilder/halbuilder-api.git</developerConnection>
-    <url>http://gotohal.net</url>
-    <tag>HEAD</tag>
-  </scm>
-
-  <developers>
-    <developer>
-      <id>talios</id>
-      <name>Mark Derricutt</name>
-      <email>mark@talios.com</email>
-      <url>http://twitter.com/talios</url>
-    </developer>
-  </developers>
-
-  <licenses>
-    <license>
-      <name>Apache License</name>
-    </license>
-  </licenses>
-
-  <distributionManagement>
+  <repositories>
     <repository>
-      <id>sonatype-staging</id>
-      <name>oss.sonatype.org Staging Repository</name>
-      <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <id>bintray</id>
+      <url>http://jcenter.bintray.com</url>
     </repository>
-    <snapshotRepository>
-      <id>github-snapshots</id>
-      <name>oss.sonatype.org github Release Repository Snapshot Repository</name>
-      <url>http://oss.sonatype.org/content/repositories/github-snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
-
-  <profiles>
-    <profile>
-      <id>release</id>
-      <activation>
-        <property>
-          <name>performRelease</name>
-          <value>true</value>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
+    <repository>
+      <id>jfrog-snapshot</id>
+      <url>http://oss.jfrog.org/simple/oss-snapshot-local</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>oss-sonatype-snapshots</id>
+      <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
 
   <build>
     <plugins>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
+        <groupId>io.repaint.maven</groupId>
+        <artifactId>tiles-maven-plugin</artifactId>
+        <version>2.4</version>
+        <extensions>true</extensions>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.2</version>
-        <configuration>
-          <preparationGoals>clean install</preparationGoals>
-          <goals>deploy</goals>
-          <pushChanges>false</pushChanges>
-          <localCheckout>true</localCheckout>
-          <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+          <tiles>
+            <tile>com.theoryinpractise:halbuilder-release-tile:[1.0.0,2.0.0)</tile>
+            <tile>com.theoryinpractise:halbuilder-styleguide-tile:[1.0.0,2.0.0)</tile>
+          </tiles>
         </configuration>
       </plugin>
     </plugins>
@@ -106,10 +57,21 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.google.auto.value</groupId>
-      <artifactId>auto-value</artifactId>
-      <version>1.1</version>
+      <groupId>org.derive4j</groupId>
+      <artifactId>derive4j</artifactId>
+      <version>0.4</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.derive4j</groupId>
+      <artifactId>derive4j-annotation</artifactId>
+      <version>0.4</version>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.javaslang</groupId>
+      <artifactId>javaslang</artifactId>
+      <version>2.0.0-RC1-SNAPSHOT</version>
     </dependency>
   </dependencies>
 

@@ -2,16 +2,17 @@ package com.theoryinpractise.halbuilder.api;
 
 import java.util.regex.Pattern;
 
+import static java.util.Objects.requireNonNull;
+
 /**
  * A Link to an external resource.
  */
 public class Link {
+
   /**
    * Pattern that will hit an RFC 6570 URI template.
    */
   private static final Pattern URI_TEMPLATE_PATTERN = Pattern.compile("\\{.+\\}");
-
-  private RepresentationFactory representationFactory;
 
   private String href;
 
@@ -27,21 +28,34 @@ public class Link {
 
   private boolean hasTemplate = false;
 
-  public Link(RepresentationFactory representationFactory, String rel, String href) {
-    this.representationFactory = representationFactory;
-    this.href = href;
-    this.rel = rel;
+  public Link(String rel, String href, String name, String title, String hreflang,
+              String profile) {
+    this(rel, href);
+    this.name = name;
+    this.title = title;
+    this.hreflang = hreflang;
+    this.profile = profile;
+  }
+
+  public Link(String rel, String href) {
+    this.href = requireNonNull(href, "href is required");
+    this.rel = requireNonNull(rel, "rel is required");
     if (hasTemplate(href)) {
       this.hasTemplate = true;
     }
   }
 
-  public Link(RepresentationFactory representationFactory, String rel, String href, String name, String title, String hreflang, String profile) {
-    this(representationFactory, rel, href);
-    this.name = name;
-    this.title = title;
-    this.hreflang = hreflang;
-    this.profile = profile;
+  /**
+   * Determine whether the argument href contains at least one URI template, as defined in RFC 6570.
+   *
+   * @param href Href to check.
+   * @return True if the href contains a template, false if not (or if the argument is null).
+   */
+  private boolean hasTemplate(String href) {
+    if (href == null) {
+      return false;
+    }
+    return URI_TEMPLATE_PATTERN.matcher(href).find();
   }
 
   public String getHref() {
@@ -70,21 +84,6 @@ public class Link {
 
   public boolean hasTemplate() {
     return hasTemplate;
-  }
-
-  /**
-   * Determine whether the argument href contains at least one URI template,
-   * as defined in RFC 6570.
-   *
-   * @param href Href to check.
-   * @return True if the href contains a template, false if not (or if the
-   * argument is null).
-   */
-  private boolean hasTemplate(String href) {
-    if (href == null) {
-      return false;
-    }
-    return URI_TEMPLATE_PATTERN.matcher(href).find();
   }
 
   @Override
@@ -138,18 +137,18 @@ public class Link {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("<link rel=\"").append(rel).append("\" href=\"").append(href).append("\"");
+    sb.append("<link rel=\"").append(rel).append("\" href=\"").append(href).append('\"');
     if (!emptyOrNull(name)) {
-      sb.append(" name=\"").append(name).append("\"");
+      sb.append(" name=\"").append(name).append('\"');
     }
     if (!emptyOrNull(title)) {
-      sb.append(" title=\"").append(title).append("\"");
+      sb.append(" title=\"").append(title).append('\"');
     }
     if (!emptyOrNull(profile)) {
-      sb.append(" profile=\"").append(profile).append("\"");
+      sb.append(" profile=\"").append(profile).append('\"');
     }
     if (!emptyOrNull(hreflang)) {
-      sb.append(" hreflang=\"").append(hreflang).append("\"");
+      sb.append(" hreflang=\"").append(hreflang).append('\"');
     }
     sb.append("/>");
 

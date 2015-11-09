@@ -1,6 +1,10 @@
 package com.theoryinpractise.halbuilder.api;
 
-public class RepresentationException extends RuntimeException {
+/**
+ * The exception thrown for any HalBuilder based error.
+ */
+public class RepresentationException
+    extends RuntimeException {
   public RepresentationException(String s) {
     super(s);
   }

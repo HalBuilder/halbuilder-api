@@ -1,52 +1,72 @@
 package com.theoryinpractise.halbuilder.api;
 
-
-import com.google.auto.value.AutoValue;
+import org.derive4j.Data;
 
 import java.util.Comparator;
 
+/**
+ * Rel defines the base class of a Algebraic Data Type for relationship semantics.
+ */
+@Data
 public abstract class Rel {
 
-  public abstract boolean isSingleton();
+  public static final Comparator<ReadableRepresentation> naturalComparator =
+      Comparator.comparing(rep -> rep.getResourceLink()
+                                     .map(Link::getRel)
+                                     .orElse(""));
 
-  public abstract String rel();
+  @Override
+  public abstract String toString();
 
-  public abstract Comparator<ReadableRepresentation> comparator();
-
-  public static Singleton singleton(String rel) {
-    return new AutoValue_Rel_Singleton(rel);
+  public String fullRel() {
+    return this.match(Rels.cases(
+        (rel) -> rel,
+        (rel) -> rel,
+        (rel, id, comarator) -> String.format("%s sorted:%s", rel, id)
+    ));
   }
 
-  public static Sorted sorted(String rel, String id, Comparator<ReadableRepresentation> comparator) {
-    return new AutoValue_Rel_Sorted(rel, id, comparator);
+  public abstract <R> R match(Cases<R> cases);
+
+  public String rel() {
+    return this.match(Rels.cases(
+        (rel) -> rel,
+        (rel) -> rel,
+        (rel, id, comarator) -> rel
+    ));
   }
 
-  @AutoValue
-  public abstract static class Singleton extends Rel {
-    public abstract String rel();
+  /**
+   * The data type covers three separate cases: singleton, natural, and sorted.
+   *
+   * @param <R> The return type used in the various derive4j generated mapping functions.
+   */
+  interface Cases<R> {
 
-    @Override
-    public boolean isSingleton() {
-      return true;
-    }
+    /**
+     * `singleton` relationships are checked for uniqueness, and render directly as an object ( rather than array of objects )
+     * when rendered as JSON.
+     *
+     * @param rel The relationship type
+     */
+    R singleton(String rel);
 
-    @Override
-    public Comparator<ReadableRepresentation> comparator() {
-      throw new UnsupportedOperationException("Singleton Rels don't have comparators");
-    }
-  }
+    /**
+     * `natural` relationships are rendered in natural order, and are rendered as a list of objects.
+     *
+     * @param rel The relationship type
+     */
+    R natural(String rel);
 
-  @AutoValue
-  public abstract static class Sorted extends Rel {
-    public abstract String rel();
-    public abstract String id();
-    public abstract Comparator<ReadableRepresentation> comparator();
-
-    @Override
-    public boolean isSingleton() {
-      return false;
-    }
-
+    /**
+     * `sorted` relationships are rendered in the order mandated by the associated `Comparator` and are rendered as a list of
+     * objects.
+     *
+     * @param rel        The relationship type
+     * @param id         An identifier to associate with the sorting technique used.
+     * @param comparator The comparator to use when sorting representations.
+     */
+    R sorted(String rel, String id, Comparator<ReadableRepresentation> comparator);
   }
 
 }
