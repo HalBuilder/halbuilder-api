@@ -144,7 +144,7 @@ public interface ReadableRepresentation {
   /**
    * Returns a map of all embedded resources.
    *
-   * @return
+   * @return A Map
    */
 
   Map<String, List<? extends ReadableRepresentation>> getResourceMap();

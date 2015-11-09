@@ -11,6 +11,10 @@
   <description>HalBuilder API</description>
   <url>http://maven.apache.org</url>
 
+  <prerequisites>
+    <maven>3.3.3</maven>
+  </prerequisites>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <checkstyle.suppressions.location>checkstyle-supressions.xml</checkstyle.suppressions.location>
