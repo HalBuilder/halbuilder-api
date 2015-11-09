@@ -11,6 +11,8 @@ import java.net.URI;
 public interface Representation
     extends ReadableRepresentation {
 
+  Representation withContent(String content);
+
   Representation withRel(Rel rel);
 
   Representation withLink(String rel, String href);
