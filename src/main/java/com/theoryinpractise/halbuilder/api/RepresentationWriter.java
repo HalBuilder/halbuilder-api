@@ -1,12 +1,12 @@
 package com.theoryinpractise.halbuilder.api;
 
+import javaslang.collection.Set;
+
 import java.io.Writer;
 import java.net.URI;
-import fj.data.Set;
 
 /**
- * A RepresentationWriter takes a ReadableRepresentation and renders it to the provided Writer, returning an
- * Optional value.
+ * A RepresentationWriter takes a ReadableRepresentation and renders it to the provided Writer, returning an Optional value.
  *
  * @param <T> A class to return.
  */

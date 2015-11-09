@@ -1,11 +1,14 @@
 package com.theoryinpractise.halbuilder.api;
 
-import fj.data.Set;
-import fj.data.TreeMap;
+import javaslang.collection.Map;
+import javaslang.collection.Set;
 
 import java.io.Reader;
 import java.net.URI;
 
+/**
+ * Abstract base RepresentationFactory.
+ */
 public abstract class RepresentationFactory {
   public static final String HAL_XML = "application/hal+xml";
 
@@ -22,7 +25,8 @@ public abstract class RepresentationFactory {
 
   public static final URI SILENT_SORTING = URI.create("urn:halbuilder:silentsorting");
 
-  public static final URI HYPERTEXT_CACHE_PATTERN = URI.create("urn:halbuild:hypertextcachepattern");
+  public static final URI HYPERTEXT_CACHE_PATTERN =
+      URI.create("urn:halbuild:hypertextcachepattern");
 
   public abstract RepresentationFactory withNamespace(String namespace, String href);
 
@@ -38,10 +42,10 @@ public abstract class RepresentationFactory {
 
   public abstract Representation newRepresentation(String href);
 
-  public abstract ContentRepresentation readRepresentation(String contentType, Reader reader);
+  public abstract ReadableRepresentation readRepresentation(String contentType, Reader reader);
 
   public abstract Set<URI> getFlags();
 
-  public abstract TreeMap<String, Rel> getRels();
+  public abstract Map<String, Rel> getRels();
 
 }
