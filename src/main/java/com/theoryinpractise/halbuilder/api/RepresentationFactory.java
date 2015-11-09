@@ -18,9 +18,6 @@ public abstract class RepresentationFactory {
 
   public static final URI COALESCE_LINKS = URI.create("urn:halbuilder:coalescelinks");
 
-  @Deprecated
-  public static final URI COALESCE_ARRAYS = URI.create("urn:halbuilder:coalescearrays");
-
   public static final URI STRIP_NULLS = URI.create("urn:halbuilder:stripnulls");
 
   public static final URI SILENT_SORTING = URI.create("urn:halbuilder:silentsorting");
