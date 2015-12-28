@@ -22,6 +22,7 @@ public abstract class Rel {
     return this.match(Rels.cases(
         (rel) -> rel,
         (rel) -> rel,
+        (rel) -> rel,
         (rel, id, comarator) -> String.format("%s sorted:%s", rel, id)
     ));
   }
@@ -30,6 +31,7 @@ public abstract class Rel {
 
   public String rel() {
     return this.match(Rels.cases(
+        (rel) -> rel,
         (rel) -> rel,
         (rel) -> rel,
         (rel, id, comarator) -> rel
@@ -52,11 +54,19 @@ public abstract class Rel {
     R singleton(String rel);
 
     /**
-     * `natural` relationships are rendered in natural order, and are rendered as a list of objects.
+     * `natural` relationships are rendered in natural order, and are rendered as a list of objects, or a coalesced into a single
+     * object.
      *
      * @param rel The relationship type
      */
     R natural(String rel);
+
+    /**
+     * `collection` relationships are rendered in natural order, and are ALWAYS rendered as a list of objects.
+     *
+     * @param rel The relationship type
+     */
+    R collection(String rel);
 
     /**
      * `sorted` relationships are rendered in the order mandated by the associated `Comparator` and are rendered as a list of
