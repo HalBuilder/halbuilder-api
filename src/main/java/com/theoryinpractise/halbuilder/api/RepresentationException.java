@@ -5,11 +5,15 @@ package com.theoryinpractise.halbuilder.api;
  */
 public class RepresentationException
     extends RuntimeException {
-  public RepresentationException(String s) {
-    super(s);
+  public RepresentationException(String message) {
+    super(message);
   }
 
   public RepresentationException(Throwable throwable) {
     super(throwable);
+  }
+
+  public RepresentationException(String message, Throwable throwable) {
+    super(message, throwable);
   }
 }
