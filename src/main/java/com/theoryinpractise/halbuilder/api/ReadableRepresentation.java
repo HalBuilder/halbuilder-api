@@ -108,9 +108,17 @@ public interface ReadableRepresentation {
    * Returns a property from the Representation.
    *
    * @param name The property to return
-   * @return An Object of the property value, or throws RepresentationException if missing
+   * @return An Optional Object of the property value
    */
   Option<Object> getValue(String name);
+
+  /**
+   * Returns a property from the Representation cast as the specified type.
+   *
+   * @param name The property to return
+   * @return An Optional Object of the property value
+   */
+  <T> Option<T> getValue(String name, Class<T> castAsClass);
 
   /**
    * Returns a property from the Representation.
