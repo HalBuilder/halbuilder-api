@@ -94,7 +94,7 @@ public interface ReadableRepresentation {
    * @param rel The rel type to search for.
    * @return An Immutable List of Resources
    */
-  List<? extends ReadableRepresentation> getResourcesByRel(String rel);
+  List<ReadableRepresentation> getResourcesByRel(String rel);
 
   /**
    * Returns all embedded resources matching the given rel by searching this, then any embedded resource instance.
@@ -102,7 +102,7 @@ public interface ReadableRepresentation {
    * @param rel The rel type to search for.
    * @return An Immutable List of Resources
    */
-  List<? extends ReadableRepresentation> getResourcesByRel(Rel rel);
+  List<ReadableRepresentation> getResourcesByRel(Rel rel);
 
   /**
    * Returns a property from the Representation.
@@ -155,7 +155,7 @@ public interface ReadableRepresentation {
    * @return A Map
    */
 
-  Map<String, List<? extends ReadableRepresentation>> getResourceMap();
+  Map<String, List<ReadableRepresentation>> getResourceMap();
 
   /**
    * Returns whether this resource is satisfied by the provided Contact.

@@ -1,19 +1,22 @@
 package com.theoryinpractise.halbuilder.api;
 
 import org.derive4j.Data;
+import org.derive4j.Derive;
+import org.derive4j.Flavour;
+import org.derive4j.Make;
 
 import java.util.Comparator;
 
 /**
  * Rel defines the base class of a Algebraic Data Type for relationship semantics.
  */
-@Data
+@Data(value = @Derive(make = {Make.getters}), flavour = Flavour.Javaslang)
 public abstract class Rel {
 
   public static final Comparator<ReadableRepresentation> naturalComparator =
       Comparator.comparing(rep -> rep.getResourceLink()
                                      .map(Link::getRel)
-                                     .orElse(""));
+                                     .getOrElse(""));
 
   @Override
   public abstract String toString();
