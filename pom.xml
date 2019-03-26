@@ -18,7 +18,8 @@
         <project.build.outputEncoding>${project.custom.encoding}</project.build.outputEncoding>
         <project.reporting.outputEncoding>${project.custom.encoding}</project.reporting.outputEncoding>
         <!-- java version -->
-        <project.custom.java.version>1.8</project.custom.java.version>
+        <project.custom.java.version>9</project.custom.java.version>
+        <maven.compiler.release>9</maven.compiler.release>
         <maven.compiler.source>${project.custom.java.version}</maven.compiler.source>
         <maven.compiler.target>${project.custom.java.version}</maven.compiler.target>
         <!-- jpms automatic module name -->
