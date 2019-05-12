@@ -1,6 +1,7 @@
 package com.theoryinpractise.halbuilder.api;
 
 import java.net.URI;
+import javax.annotation.Nullable;
 
 public interface Representation extends ReadableRepresentation {
 
@@ -11,7 +12,7 @@ public interface Representation extends ReadableRepresentation {
   Representation withLink(
       String rel, String href, String name, String title, String hreflang, String profile);
 
-  Representation withProperty(String name, Object value);
+  Representation withProperty(String name, @Nullable Object value);
 
   Representation withBean(Object value);
 

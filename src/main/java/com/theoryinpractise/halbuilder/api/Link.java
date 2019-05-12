@@ -1,13 +1,12 @@
 package com.theoryinpractise.halbuilder.api;
 
 import java.util.regex.Pattern;
+import javax.annotation.Nullable;
 
 /** A Link to an external resource. */
 public class Link {
   /** Pattern that will hit an RFC 6570 URI template. */
   private static final Pattern URI_TEMPLATE_PATTERN = Pattern.compile("\\{.+\\}");
-
-  private RepresentationFactory representationFactory;
 
   private String href;
 
@@ -23,24 +22,51 @@ public class Link {
 
   private boolean hasTemplate = false;
 
-  public Link(RepresentationFactory representationFactory, String rel, String href) {
-    this.representationFactory = representationFactory;
+  public Link(String rel, String href) {
     this.href = href;
     this.rel = rel;
+    this.name = "";
+    this.title = "";
+    this.hreflang = "";
+    this.profile = "";
     if (hasTemplate(href)) {
       this.hasTemplate = true;
     }
   }
 
+  public Link(String rel, String href, String name, String title, String hreflang, String profile) {
+    this(rel, href);
+    this.name = name;
+    this.title = title;
+    this.hreflang = hreflang;
+    this.profile = profile;
+  }
+
+  /** @deprecated Use new Link(rel, href) */
+  @Deprecated
+  public Link(@Nullable RepresentationFactory representationFactory, String rel, String href) {
+    this.href = href;
+    this.rel = rel;
+    this.name = "";
+    this.title = "";
+    this.hreflang = "";
+    this.profile = "";
+    if (hasTemplate(href)) {
+      this.hasTemplate = true;
+    }
+  }
+
+  /** @deprecated Use new Link(rel, href, name, title, hreflang, profile) */
+  @Deprecated
   public Link(
-      RepresentationFactory representationFactory,
+      @Nullable RepresentationFactory representationFactory,
       String rel,
       String href,
       String name,
       String title,
       String hreflang,
       String profile) {
-    this(representationFactory, rel, href);
+    this(rel, href);
     this.name = name;
     this.title = title;
     this.hreflang = hreflang;

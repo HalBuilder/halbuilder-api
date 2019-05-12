@@ -145,13 +145,13 @@ public interface ReadableRepresentation {
    * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers
    * can be added to a RepresentationFactory.
    *
-   * @deprecated
+   * @deprecated Use the version without flags
    * @param contentType The content type requested
    * @param flags A set of URI based flags to customize rendering
    * @return A String
    */
   @Deprecated
-  String toString(String contentType, final Set<URI> flags);
+  String toString(String contentType, Set<URI> flags);
 
   /**
    * Returns the resource in the requested content-type, along with additional flags.
@@ -163,7 +163,7 @@ public interface ReadableRepresentation {
    * @param flags A set of URI based flags to customize rendering
    * @return A String
    */
-  String toString(String contentType, final URI... flags);
+  String toString(String contentType, URI... flags);
 
   /**
    * Write the resource in the requested content-type, to the specified Writer
@@ -183,13 +183,13 @@ public interface ReadableRepresentation {
    * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers
    * can be added to a RepresentationFactory.
    *
-   * @deprecated
+   * @deprecated Use the version without flags
    * @param contentType The content type requested
    * @param flags A set of URI based flags to customize rendering
    * @param writer The Writer to write to
    */
   @Deprecated
-  void toString(String contentType, final Set<URI> flags, Writer writer);
+  void toString(String contentType, Set<URI> flags, Writer writer);
 
   /**
    * Write the resource in the requested content-type, along with additional flags to the specified
