@@ -81,12 +81,14 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <groupId>io.repaint.maven</groupId>
+                <artifactId>tiles-maven-plugin</artifactId>
+                <version>2.14</version>
+                <extensions>true</extensions>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <tiles>
+                        <tile>com.theoryinpractise:halbuilder-styleguide-tile:[1.0.18, 2)</tile>
+                    </tiles>
                 </configuration>
             </plugin>
             <plugin>
