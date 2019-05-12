@@ -2,13 +2,9 @@ package com.theoryinpractise.halbuilder.api;
 
 import java.util.regex.Pattern;
 
-/**
- * A Link to an external resource.
- */
+/** A Link to an external resource. */
 public class Link {
-  /**
-   * Pattern that will hit an RFC 6570 URI template.
-   */
+  /** Pattern that will hit an RFC 6570 URI template. */
   private static final Pattern URI_TEMPLATE_PATTERN = Pattern.compile("\\{.+\\}");
 
   private RepresentationFactory representationFactory;
@@ -36,7 +32,14 @@ public class Link {
     }
   }
 
-  public Link(RepresentationFactory representationFactory, String rel, String href, String name, String title, String hreflang, String profile) {
+  public Link(
+      RepresentationFactory representationFactory,
+      String rel,
+      String href,
+      String name,
+      String title,
+      String hreflang,
+      String profile) {
     this(representationFactory, rel, href);
     this.name = name;
     this.title = title;
@@ -73,12 +76,10 @@ public class Link {
   }
 
   /**
-   * Determine whether the argument href contains at least one URI template,
-   * as defined in RFC 6570.
+   * Determine whether the argument href contains at least one URI template, as defined in RFC 6570.
    *
    * @param href Href to check.
-   * @return True if the href contains a template, false if not (or if the
-   * argument is null).
+   * @return True if the href contains a template, false if not (or if the argument is null).
    */
   private boolean hasTemplate(String href) {
     if (href == null) {

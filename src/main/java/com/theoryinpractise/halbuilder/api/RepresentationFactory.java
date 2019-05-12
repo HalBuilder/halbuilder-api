@@ -17,7 +17,8 @@ public abstract class RepresentationFactory {
 
   public static final URI STRIP_NULLS = URI.create("urn:halbuilder:stripnulls");
 
-  public static final URI HYPERTEXT_CACHE_PATTERN = URI.create("urn:halbuild:hypertextcachepattern");
+  public static final URI HYPERTEXT_CACHE_PATTERN =
+      URI.create("urn:halbuild:hypertextcachepattern");
 
   public abstract RepresentationFactory withNamespace(String namespace, String href);
 
@@ -34,5 +35,4 @@ public abstract class RepresentationFactory {
   public abstract ContentRepresentation readRepresentation(String contentType, Reader reader);
 
   public abstract Set<URI> getFlags();
-
 }

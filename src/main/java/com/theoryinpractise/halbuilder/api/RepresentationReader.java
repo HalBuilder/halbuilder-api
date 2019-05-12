@@ -5,5 +5,4 @@ import java.io.Reader;
 public interface RepresentationReader {
 
   ContentRepresentation read(Reader source);
-
 }
