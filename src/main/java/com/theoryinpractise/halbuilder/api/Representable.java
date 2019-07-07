@@ -1,9 +1,6 @@
 package com.theoryinpractise.halbuilder.api;
 
-/**
- * Implementers of this interface can provide customized means of representing a class to a
- * Representation.
- */
+/** Implementers of this interface can provide customized means of representing a class to a Representation. */
 public interface Representable {
 
   /**

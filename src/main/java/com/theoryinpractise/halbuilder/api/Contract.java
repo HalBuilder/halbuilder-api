@@ -1,11 +1,10 @@
 package com.theoryinpractise.halbuilder.api;
 
 /**
- * A Contract is used to assert that a given ReadableRepresentation conforms to a specific set of
- * requirements.
+ * A Contract is used to assert that a given ReadableRepresentation conforms to a specific set of requirements.
  *
- * <p>Implementing this interface allows an object to assert the validatity of a resources structure
- * (required fields), business data (duplicate data) or any other contractual concept.
+ * <p>Implementing this interface allows an object to assert the validatity of a resources structure (required fields), business data (duplicate data) or any
+ * other contractual concept.
  */
 public interface Contract {
 

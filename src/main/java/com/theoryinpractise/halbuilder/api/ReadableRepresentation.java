@@ -34,8 +34,7 @@ public interface ReadableRepresentation {
   /**
    * Returns an ImmutableList of collated Link instances on this resource.
    *
-   * <p>Multiple links to the same resolved HREF are collated into a single Link instance with a
-   * space separated combined rel attribute.
+   * <p>Multiple links to the same resolved HREF are collated into a single Link instance with a space separated combined rel attribute.
    *
    * @return A List of Links
    */
@@ -58,8 +57,7 @@ public interface ReadableRepresentation {
   List<Link> getLinksByRel(String rel);
 
   /**
-   * Returns all embedded resources matching the given rel by searching this, then any embedded
-   * resource instance.
+   * Returns all embedded resources matching the given rel by searching this, then any embedded resource instance.
    *
    * @param rel The rel type to search for.
    * @return An Immutable List of Resources
@@ -90,11 +88,9 @@ public interface ReadableRepresentation {
   Map<String, Object> getProperties();
 
   /**
-   * Return an indication of whether this resource, or subresources of this resource, contain null
-   * properties.
+   * Return an indication of whether this resource, or subresources of this resource, contain null properties.
    *
-   * @return True if this resource, or subresources of this resource, contain null properties. False
-   *     if not.
+   * @return True if this resource, or subresources of this resource, contain null properties. False if not.
    */
   boolean hasNullProperties();
 
@@ -131,8 +127,7 @@ public interface ReadableRepresentation {
   /**
    * Returns the resource in the requested content-type.
    *
-   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers
-   * can be added to a RepresentationFactory.
+   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers can be added to a RepresentationFactory.
    *
    * @param contentType The content type requested
    * @return A String
@@ -142,8 +137,7 @@ public interface ReadableRepresentation {
   /**
    * Returns the resource in the requested content-type, along with additional flags.
    *
-   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers
-   * can be added to a RepresentationFactory.
+   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers can be added to a RepresentationFactory.
    *
    * @deprecated Use the version without flags
    * @param contentType The content type requested
@@ -156,8 +150,7 @@ public interface ReadableRepresentation {
   /**
    * Returns the resource in the requested content-type, along with additional flags.
    *
-   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers
-   * can be added to a RepresentationFactory.
+   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers can be added to a RepresentationFactory.
    *
    * @param contentType The content type requested
    * @param flags A set of URI based flags to customize rendering
@@ -168,8 +161,7 @@ public interface ReadableRepresentation {
   /**
    * Write the resource in the requested content-type, to the specified Writer
    *
-   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers
-   * can be added to a RepresentationFactory.
+   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers can be added to a RepresentationFactory.
    *
    * @param contentType The content type requested
    * @param writer The Writer to write to
@@ -177,11 +169,9 @@ public interface ReadableRepresentation {
   void toString(String contentType, Writer writer);
 
   /**
-   * Write the resource in the requested content-type, along with additional flags to the specified
-   * Writer
+   * Write the resource in the requested content-type, along with additional flags to the specified Writer
    *
-   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers
-   * can be added to a RepresentationFactory.
+   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers can be added to a RepresentationFactory.
    *
    * @deprecated Use the version without flags
    * @param contentType The content type requested
@@ -192,11 +182,9 @@ public interface ReadableRepresentation {
   void toString(String contentType, Set<URI> flags, Writer writer);
 
   /**
-   * Write the resource in the requested content-type, along with additional flags to the specified
-   * Writer
+   * Write the resource in the requested content-type, along with additional flags to the specified Writer
    *
-   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers
-   * can be added to a RepresentationFactory.
+   * <p>application/hal+xml and application/hal+json are provided by default, additional Renderers can be added to a RepresentationFactory.
    *
    * @param contentType The content type requested
    * @param flags A set of URI based flags to customize rendering

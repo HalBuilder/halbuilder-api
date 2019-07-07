@@ -58,14 +58,7 @@ public class Link {
 
   /** @deprecated Use new Link(rel, href, name, title, hreflang, profile) */
   @Deprecated
-  public Link(
-      @Nullable RepresentationFactory representationFactory,
-      String rel,
-      String href,
-      String name,
-      String title,
-      String hreflang,
-      String profile) {
+  public Link(@Nullable RepresentationFactory representationFactory, String rel, String href, String name, String title, String hreflang, String profile) {
     this(rel, href);
     this.name = name;
     this.title = title;

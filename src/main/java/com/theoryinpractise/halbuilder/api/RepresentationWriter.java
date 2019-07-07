@@ -5,8 +5,7 @@ import java.net.URI;
 import java.util.Set;
 
 /**
- * A RepresentationWriter takes a ReadableRepresentation and renders it to the provided Writer,
- * returning an Optional value.
+ * A RepresentationWriter takes a ReadableRepresentation and renders it to the provided Writer, returning an Optional value.
  *
  * @param <T> A class to return.
  */

@@ -9,8 +9,7 @@ public interface Representation extends ReadableRepresentation {
 
   Representation withLink(String rel, URI uri);
 
-  Representation withLink(
-      String rel, String href, String name, String title, String hreflang, String profile);
+  Representation withLink(String rel, String href, String name, String title, String hreflang, String profile);
 
   Representation withProperty(String name, @Nullable Object value);
 
