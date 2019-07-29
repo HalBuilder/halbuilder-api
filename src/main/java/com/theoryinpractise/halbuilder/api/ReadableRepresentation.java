@@ -212,4 +212,5 @@ public interface ReadableRepresentation {
    */
   void toString(String contentType, Writer writer, URI... flags);
 
+  boolean isEmptySubRepresentation();
 }

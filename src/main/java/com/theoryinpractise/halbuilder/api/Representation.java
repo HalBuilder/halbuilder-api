@@ -39,4 +39,6 @@ public interface Representation
   Representation withNamespace(String namespace, String href);
 
   Representation withRepresentation(String rel, ReadableRepresentation resource);
+
+  Representation setEmptySubRepresentation(boolean isEmpty);
 }
