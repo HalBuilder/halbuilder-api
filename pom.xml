@@ -68,12 +68,12 @@
       <plugin>
         <groupId>io.repaint.maven</groupId>
         <artifactId>tiles-maven-plugin</artifactId>
-        <version>2.15</version>
+        <version>2.16</version>
         <extensions>true</extensions>
         <configuration>
           <tiles>
-            <tile>com.theoryinpractise:halbuilder-styleguide-tile:[1.0.21]</tile>
-            <tile>com.theoryinpractise:halbuilder-build-tile:[1.0.2]</tile>
+            <tile>com.theoryinpractise:halbuilder-styleguide-tile:[1.0.24]</tile>
+            <tile>com.theoryinpractise:halbuilder-build-tile:[1.0.3]</tile>
           </tiles>
         </configuration>
       </plugin>
